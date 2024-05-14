@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人物移动控制</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        background-color: #f0f0f0;
+    }
+    canvas {
+        display: block;
+        margin: 0 auto;
+        background-color: #ffffff;
+    }
+    #gameOver, #gameWin, #shopPanel {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+    #gameOver button, #gameWin button, #shopPanel button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+    #life, #score, #gold {
+        position: absolute;
+        top: 10px;
+        font-size: 24px;
+    }
+    #life { left: 10px; }
+    #score { left: 120px; }
+    #gold { left: 230px; cursor: pointer; }
+    #shopPanel {
+        background-color: white;
+        padding: 20px;
+        border: 2px solid black;
+    }
+    #shopPanel h1 { margin: 0; }
+    #shopPanel ul { list-style: none; padding: 0; }
+    #shopPanel li { margin: 10px 0; }
+</style>
+</head>
+<body>
+<canvas id="gameCanvas"></canvas>
+<div id="gameOver">
+    <h1>游戏失败</h1>
+    <button onclick="restartGame()">重新开始</button>
+</div>
+<div id="gameWin">
+    <h1>游戏胜利</h1>
+    <button onclick="restartGame()">重新开始</button>
+</div>
+<div id="shopPanel">
+    <h1>商店</h1>
+    <button onclick="closeShop()">关闭</button>
+    <ul id="shopItems">
+        <!-- 升级物品列表 -->
+    </ul>
+</div>
+<div id="life"></div>
+<div id="score"></div>
+<div id="gold" onclick="openShop()"></div>
+<script src="game.js"></script>
+</body>
+</html>
